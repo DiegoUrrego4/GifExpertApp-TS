@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { getGifs } from "../helpers/getGifs";
 import { Gif } from "../interfaces";
+import { GifItem } from "./GifItem";
 
 interface Props {
 	category: string;
@@ -23,11 +24,11 @@ export const GifGrid = ({ category }: Props) => {
 	return (
 		<>
 			<h3>{category}</h3>
-			<ol>
-				{images.map(({ id, title }) => (
-					<li key={id}>{title}</li>
+			<div className="card-grid">
+				{images.map((image) => (
+					<GifItem key={image.id} {...image} />
 				))}
-			</ol>
+			</div>
 		</>
 	);
 };
