@@ -15,8 +15,12 @@ export const GifExpertApp = () => {
 
 	return (
 		<>
-			<h1>GifExpertApp</h1>
-			<AddCategory onNewCategory={(value) => onAddCategory(value)} />
+			<header>
+				<h1>Gif Expert App</h1>
+			</header>
+			<section className="search">
+				<AddCategory onNewCategory={(value) => onAddCategory(value)} />
+			</section>
 			<ol>
 				{categories.map((category) => (
 					<GifGrid key={category} category={category} />

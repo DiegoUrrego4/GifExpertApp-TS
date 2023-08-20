@@ -22,7 +22,13 @@ export const AddCategory = ({ onNewCategory }: Props) => {
 
 	return (
 		<form onSubmit={onSubmit}>
-			<input type="text" placeholder="Buscar gifs" value={inputValue} onChange={onInputChange} />
+			<input
+				className="search__input"
+				type="text"
+				placeholder="Buscar gifs 🔍"
+				value={inputValue}
+				onChange={onInputChange}
+			/>
 		</form>
 	);
 };

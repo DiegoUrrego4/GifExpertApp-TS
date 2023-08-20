@@ -5,9 +5,13 @@ interface Props {
 
 export const GifItem = ({ title, url }: Props) => {
 	return (
-		<div className="card">
-			<img src={url} alt={title} />
-			<p>{title}</p>
+		<div className="grid__card">
+			<div className="grid__card__image">
+				<img src={url} alt={title} />
+			</div>
+			<div className="grid__card__title">
+				<p>{title}</p>
+			</div>
 		</div>
 	);
 };
