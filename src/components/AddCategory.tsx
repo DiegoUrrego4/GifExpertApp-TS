@@ -1,7 +1,6 @@
 import { ChangeEvent, useState } from "react";
 
 interface Props {
-	// setCategories: React.Dispatch<React.SetStateAction<string[]>>;
 	onNewCategory: (value: string) => void;
 }
 
