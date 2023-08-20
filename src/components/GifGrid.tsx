@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-
-import { getGifs } from "../helpers/getGifs";
-import { Gif } from "../interfaces";
+import { useFetchGifs } from "../hooks";
 import { GifItem } from "./GifItem";
 
 interface Props {
@@ -9,17 +6,11 @@ interface Props {
 }
 
 export const GifGrid = ({ category }: Props) => {
-	const [images, setImages] = useState<Gif[]>([]);
+	const { images, isLoading } = useFetchGifs(category);
 
-	useEffect(() => {
-		getGifs(category)
-			.then((newImages: Gif[]) => {
-				setImages(newImages);
-			})
-			.catch((err: string) => {
-				throw new Error(`${err}`);
-			});
-	}, [category]);
+	if (isLoading) {
+		return <h1>Cargando ...</h1>;
+	}
 
 	return (
 		<>
