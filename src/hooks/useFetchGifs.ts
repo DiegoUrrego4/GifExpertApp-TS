@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getGifs } from "../helpers/getGifs";
 import { Gif } from "../interfaces";
 
-interface HookResponse {
+export interface HookResponse {
 	images: Gif[];
 	isLoading: boolean;
 }
@@ -19,8 +19,8 @@ export const useFetchGifs = (category: string): HookResponse => {
 				setIsLoading(false);
 			})
 			.catch((err: string) => {
-				throw new Error(`Error en obtención de GIFS: ${err}`);
 				setIsLoading(false);
+				throw new Error(`Error en obtención de GIFS: ${err}`);
 			});
 	}, [category]);
 

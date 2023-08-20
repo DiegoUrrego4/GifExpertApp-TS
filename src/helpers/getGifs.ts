@@ -13,6 +13,6 @@ export const getGifs = async (category: string): Promise<Gif[]> => {
 
 		return gifs;
 	} catch (error) {
-		throw new Error("Error en petición");
+		throw new Error(String(error));
 	}
 };
